@@ -3,7 +3,7 @@ param(
     [string]$Key,
     [string]$Recipient,
     [string]$Amount,
-    [string]$Token = "PE"
+    [string]$Token = "PE",
     [string]$Endpoint = "pub-infra.opesx.io",
     [switch]$h
 )
