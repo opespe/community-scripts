@@ -4,7 +4,7 @@ set -e
 usage="A script for claiming reward funds.
 
 Usage:
-    $(basename "$0") [-h] -a|--account <account name> -k|--key <private key> [-t|--type <reward type>] [-h|--host <api endpoint hostname>] [-q|--quiet]
+    $(basename "$0") [-h] -a|--account <account name> -k|--key <private key> [-t|--type <reward type>] [-e|--endpoint <api endpoint hostname>] [-q|--quiet]
 
 Where:
     -h                Show this help text
