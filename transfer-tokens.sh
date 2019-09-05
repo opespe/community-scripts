@@ -103,6 +103,7 @@ fi
 [[ -n "$TT_RECIPIENT" ]] || end "ERROR: Receiving account not specified."
 [[ -n "$TT_AMOUNT" ]] || end "ERROR: Amount not specified."
 [[ -n "$TT_KEY" ]] || end "ERROR: Sender's private key not specified."
+[[ "$TT_AMOUNT" =~ ^[0-9]*$|^[0-9]+\.[0-9]{1,4}$ ]] || end "ERROR: Invalid amount. Max percision is 4 decimal places and amounts less than 0 must provide the 0 in front of the decimal."
 
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 docker pull opespe/infranode:$DOCKER_TAG
