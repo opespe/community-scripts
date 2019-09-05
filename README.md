@@ -5,6 +5,7 @@ Repository for community scripts
 ## Scripts
 
 * **claimfunds.sh** - Script to help with claiming CN, AN, and IN PE rewards.
+* **createcn.sh** - Script to create new CNs via the CN Onboarding contract.
 
 ## Usage
 
