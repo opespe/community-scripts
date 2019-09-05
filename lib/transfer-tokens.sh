@@ -73,3 +73,19 @@ fi
 echo "Executing transation."
 $ecmd transfer $SENDER $RECIPIENT "$AMOUNT $TOKEN"
 echo "Transaction successfully sent!"
+
+# Give transaction some time to complete
+echo "Giving transaction time to finish."
+sleep 5
+
+# Get SENDERS new TOKEN balance
+new_sender_balance=$($ecmd get currency balance eosio.token $SENDER $TOKEN)
+[[ -n "$new_sender_balance" ]] || new_sender_balance="0 $TOKEN"
+
+# Get RECIPIENTS new TOKEN balance
+new_recipient_balance=$($ecmd get currency balance eosio.token $RECIPIENT $TOKEN)
+[[ -n "$new_recipient_balance" ]] || new_recipient_balance="0 $TOKEN"
+
+# Display new balances
+echo "Sender's new balance is $new_sender_balance."
+echo "Recipients's new balance is $new_recipient_balance."
