@@ -11,7 +11,7 @@ Repository for community scripts
 
 You will need the following software to run the scripts found in this repository.
 
-* Bash
+* Bash or PowerShell
 * Docker
 
 > **NOTE:** Scripts in this repository will pull down the `opespe/infranode` Docker image from Docker Hub to gain access to the `cleos` command. It will also attempt to mount the root of this repository inside the container when it runs.

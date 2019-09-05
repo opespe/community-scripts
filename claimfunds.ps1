@@ -12,7 +12,7 @@ $ErrorActionPreference = "Stop"
 $usage = "A script for claiming reward funds.
 
 Usage:
-    claimfunds.ps1 [-h] -a|--account <account name> -k|--key <private key> [-t|--type <reward type>] [-e|--endpoint <api endpoint hostname>] [-q|--quiet]
+    claimfunds.ps1 [-h] -Account <account name> -Key <private key> [-Type <reward type>] [-Endpoint <api endpoint hostname>] [-Quiet]
 
 Where:
     -h                Show this help text
