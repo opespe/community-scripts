@@ -27,7 +27,6 @@ if ($CF_TYPE -notmatch "^cn$|^an$|^in$") {
     Write-Error "Invalid reward type: $CF_TYPE"
 }
 
-Write-Host ${PSScriptRoot}
-
+$SCRIPTPATH = "/" + ${PSScriptRoot}.Replace("\","/").Replace(":","")
 docker pull opespe/infranode:$DOCKER_TAG
-docker run --rm -it -v "${PSScriptRoot}:/src" -e NODEOS_ADDR=$CF_ENDPOINT -e CF_ACCOUNT=$CF_ACCOUNT -e CF_KEY=$CF_KEY -e CF_TYPE=$CF_TYPE -e CF_QUIET=$CF_QUIET --entrypoint bash opespe/infranode:$DOCKER_TAG /src/lib/claimfunds.sh
+docker run --rm -it -v "${SCRIPTPATH}:/src" -e NODEOS_ADDR=$CF_ENDPOINT -e CF_ACCOUNT=$CF_ACCOUNT -e CF_KEY=$CF_KEY -e CF_TYPE=$CF_TYPE -e CF_QUIET=$CF_QUIET --entrypoint bash opespe/infranode:$DOCKER_TAG /src/lib/claimfunds.sh
