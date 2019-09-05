@@ -84,6 +84,9 @@ if ($env:TT_AMOUNT) {
         $TT_AMOUNT = Read-Host -Prompt "Amount of $TT_TOKEN to send"
     }
 }
+if ($TT_AMOUNT -notmatch "^[0-9]*$|^[0-9]+\.[0-9]{1,4}$") {
+    Write-Error "Invalid amount. Max percision is 4 decimal places and amounts less than 0 must provide the 0 in front of the decimal."
+}
 if ($env:TT_ENDPOINT) {
     $TT_ENDPOINT = $env:TT_ENDPOINT
 } else {
