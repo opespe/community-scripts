@@ -184,18 +184,18 @@ if ([string]::IsNullOrWhiteSpace($CC_IN)) { stop-script "ERROR: New CN's IN work
 
 # Transform OPES to EOS for public keys
 if ($CC_OWNER -match "^OPES") {
-  $CC_OWNER=$CC_OWNER.Replace('^OPES','EOS')
+  $CC_OWNER = $CC_OWNER -replace "^OPES","EOS"
 }
 if ($CC_ACTIVE -match "^OPES") {
-  $CC_ACTIVE=$CC_ACTIVE.Replace('^OPES','EOS')
+  $CC_ACTIVE=$CC_ACTIVE -replace "^OPES","EOS"
 }
 if ($CC_AN -match "^OPES") {
-  $CC_AN=$CC_AN.Replace('^OPES','EOS')
+  $CC_AN=$CC_AN -replace "^OPES","EOS"
 }
 if ($CC_IN -match "^OPES") {
-  $CC_IN=$CC_IN.Replace('^OPES','EOS')
+  $CC_IN=$CC_IN -replace "^OPES","EOS"
 }
 
 $SCRIPTPATH = "/" + ${PSScriptRoot}.Split(":")[0].tolower() + ${PSScriptRoot}.Split(":")[1].Replace("\","/")
 docker pull opespe/infranode:$DOCKER_TAG
-docker run --rm -it -v $SCRIPTPATH:/src -e NODEOS_ADDR=$CC_ENDPOINT -e REFERRER_CN=$CC_REFERRERCN -e REFERRER_CN_PRIVKEY=$CC_KEY -e REFERRER_PN=$CC_REFERRERPN -e CN_NAME=$CC_NAME -e CN_URL=$CC_URL -e CN_OWNER_PUB_KEY=$CC_OWNER -e CN_ACTIVE_PUB_KEY=$CC_ACTIVE -e AN_WORKER_PUB_KEY=$CC_AN -e IN_WORKER_PUB_KEY=$CC_IN --entrypoint bash opespe/infranode:$DOCKER_TAG /src/lib/createcn.sh
+docker run --rm -it -v "${SCRIPTPATH}:/src" -e NODEOS_ADDR=$CC_ENDPOINT -e REFERRER_CN=$CC_REFERRERCN -e REFERRER_CN_PRIVKEY=$CC_KEY -e REFERRER_PN=$CC_REFERRERPN -e CN_NAME=$CC_NAME -e CN_URL=$CC_URL -e CN_OWNER_PUB_KEY=$CC_OWNER -e CN_ACTIVE_PUB_KEY=$CC_ACTIVE -e AN_WORKER_PUB_KEY=$CC_AN -e IN_WORKER_PUB_KEY=$CC_IN --entrypoint bash opespe/infranode:$DOCKER_TAG /src/lib/createcn.sh
