@@ -7,6 +7,7 @@ Repository for community scripts
 * **claimfunds.sh** - Script to help with claiming CN, AN, and IN PE rewards.
 * **claimfunds.ps1** - Windows PowerShell equivalent of `claimfunds.sh`.
 * **createcn.sh** - Script to create new CNs via the CN Onboarding contract.
+* **createcn.ps1** - Windows PowerShell equivalent of `createcn.ps1`.
 * **transfer-tokens.sh** - Script to help with transferring tokens from one account to another.
 * **transfer-tokens.ps1** - Windows PowerShell equivalent of `transfer-tokens.sh`.
 
