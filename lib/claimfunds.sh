@@ -31,15 +31,12 @@ function get_reward_balance {
     echo "$rewards"
 }
 
-CLAIMFUNDS_PRIVKEY=5JoVPeTasDKTpkKy4Cb3eBEmANS4vczAHyBVr9NUuXcnYENmKHB
-
 SCRIPTPATH="$( cd "$(dirname "$0")" ; pwd -P )"
 . $SCRIPTPATH/eos-functions.sh
 
 # Create wallet and load private keys
 echo "Setting up wallet"
 setup_wallet > /dev/null
-import_private_key $CLAIMFUNDS_PRIVKEY > /dev/null
 import_private_key $CF_KEY > /dev/null
 echo "Wallet setup complete!"
 echo ""
@@ -94,7 +91,7 @@ fi
 
 # Submit claimfunds action
 echo "Sending action to claim funds."
-$ecmd push action eosio claimfunds "{\"kind\":\"$CF_TYPE\", \"nodename\":\"$CF_ACCOUNT\"}" -p $CF_ACCOUNT@active eosio@claimfunds
+$ecmd push action eosio claimfunds "{\"kind\":\"$CF_TYPE\", \"nodename\":\"$CF_ACCOUNT\"}" -p $CF_ACCOUNT@active
 
 # Give transaction some time to complete
 echo "Giving transaction time to finish."
